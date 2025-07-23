@@ -1,0 +1,82 @@
+# IX-Singularis Simulation File
+# Model: Element 115 Harmonic Containment Profile
+# Format: .sim (plaintext config for waveform simulator or custom FPGA sequencer)
+
+---
+
+[MODEL_META]
+name = "element115_harmonic_dampening"
+version = "1.0"
+author = "Bryce Wooster"
+date_created = "2025-07-22"
+simulation_type = "real-time harmonic waveform suppression"
+
+---
+
+[CORE_PARAMETERS]
+isotope_target = "Element_115"
+initial_mass_micrograms = 0.89
+vault_core_diameter_cm = 5.5
+vacuum_pressure_mTorr = 0.001
+starting_temperature_K = 4.3
+
+---
+
+[HARMONIC_WAVEFORM_PROFILES]
+beam_count = 6
+beam_shape = "longitudinal Tesla sinusoid"
+base_frequency_MHz = 2.19
+frequency_variance_range_MHz = 0.45
+harmonic_ratios = [3, 6, 9]
+phase_inversion_delay_ns = 270
+pulse_duration_microsec = 12.5
+pulse_spacing_microsec = 3.8
+field_strength_Vpm = 1200
+
+---
+
+[STF_LAYER_MODEL]
+viscosity_model = "non-newtonian_shear_thickening"
+pressure_threshold_MPa = 4.0
+cavitation_response = true
+temperature_coupling = true
+
+---
+
+[REFLECTOR_LOGIC]
+mirror_geometry = "toroidal foldback"
+mirror_material = "dielectric-silver hybrid"
+angle_variation_range_deg = 0–22
+feedback_delay_ns = 140
+beam_phase_shaping = "asymmetric envelope folding"
+
+---
+
+[CRYO_CORE_SYNC]
+input_temperature_stream = "cryo_feedback_loop.temp"
+feedback_latency_ms = 0.05
+coolant_type = "He4"
+thermal_response_curve = "log-normal damped"
+
+---
+
+[FAILSAFE_TESTS]
+trigger_simulated_spike = true
+radiation_burst_amplitude = 1.8e5
+suppression_response_time_ns = 310
+post-event_field_integrity = "maintained"
+
+---
+
+[VISUALIZATION]
+enabled = true
+frame_rate_fps = 240
+overlay_grid_cm = true
+beam_color = "#00FFFF"
+suppression_color = "#FF0000"
+phase_overlay = "true"
+export_format = "mp4 + CSV"
+
+---
+
+[END]
