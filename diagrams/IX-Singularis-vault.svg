@@ -1,0 +1,53 @@
+<!--
+IX-Singularis Vault System Architecture Diagram
+Format: Scalable Vector Graphics (SVG)
+Author: Bryce Wooster, 2025
+-->
+
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#0c0c0c" />
+
+  <!-- Center: Exotic Matter Core -->
+  <circle cx="600" cy="600" r="30" fill="#ff0040" stroke="#ff89a3" stroke-width="2" />
+  <text x="600" y="595" fill="#ffffff" font-size="14" text-anchor="middle">Element 115 Core</text>
+
+  <!-- STF Reactive Layer -->
+  <circle cx="600" cy="600" r="60" fill="none" stroke="#00bfff" stroke-width="4" />
+  <text x="600" y="570" fill="#00bfff" font-size="12" text-anchor="middle">STF Matrix</text>
+
+  <!-- Meta-Mirror Nanosurface -->
+  <circle cx="600" cy="600" r="90" fill="none" stroke="#ffff66" stroke-width="3" stroke-dasharray="4 4"/>
+  <text x="600" y="525" fill="#ffff66" font-size="12" text-anchor="middle">Meta-Mirror Shell</text>
+
+  <!-- Harmonic Beam Array (simplified to 12 directional beams) -->
+  <!-- Sample node beam lines -->
+  <line x1="600" y1="600" x2="600" y2="180" stroke="#66ff66" stroke-width="1.5" />
+  <line x1="600" y1="600" x2="920" y2="600" stroke="#66ff66" stroke-width="1.5" />
+  <line x1="600" y1="600" x2="600" y2="1020" stroke="#66ff66" stroke-width="1.5" />
+  <line x1="600" y1="600" x2="280" y2="600" stroke="#66ff66" stroke-width="1.5" />
+  <text x="920" y="585" fill="#66ff66" font-size="12">Beam Node</text>
+
+  <!-- CryoCore Loop -->
+  <circle cx="600" cy="600" r="130" fill="none" stroke="#0099cc" stroke-width="2" />
+  <text x="600" y="455" fill="#0099cc" font-size="12" text-anchor="middle">CryoCore Coolant Ring</text>
+
+  <!-- ZeroCell Feedback Layer -->
+  <circle cx="600" cy="600" r="170" fill="none" stroke="#ffa500" stroke-width="2" stroke-dasharray="6 3" />
+  <text x="600" y="430" fill="#ffa500" font-size="12" text-anchor="middle">ZeroCell Ambient Feedback</text>
+
+  <!-- Harmonic Pressure Envelope -->
+  <circle cx="600" cy="600" r="210" fill="none" stroke="#ffccff" stroke-width="2" />
+  <text x="600" y="400" fill="#ffccff" font-size="12" text-anchor="middle">Harmonic Envelope</text>
+
+  <!-- Radiation Suppression Lattice -->
+  <circle cx="600" cy="600" r="250" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="2 2"/>
+  <text x="600" y="380" fill="#ffffff" font-size="12" text-anchor="middle">Suppression Lattice (B₄C)</text>
+
+  <!-- Field Folding Zones (visual overlay) -->
+  <ellipse cx="600" cy="600" rx="300" ry="300" fill="none" stroke="#ff66ff" stroke-width="1" stroke-dasharray="2 4" />
+  <text x="600" y="360" fill="#ff66ff" font-size="12" text-anchor="middle">Field Folding Nodes</text>
+
+  <!-- Diagram Labels -->
+  <text x="600" y="1180" fill="#999999" font-size="10" text-anchor="middle">IX-Singularis System Vault Architecture – Tesla Harmonic Containment (2025)</text>
+</svg>
