@@ -1,0 +1,66 @@
+# IX-Singularis Simulation File
+# Model: Ambient Vacuum Fluctuation Mapping
+# Format: .sim (standardized simulation config)
+
+---
+
+[MODEL_META]
+name = "ambient_vacuum_noise_map"
+version = "1.0"
+author = "Bryce Wooster"
+date_created = "2025-07-22"
+simulation_scope = "phase-filtered vacuum fluctuation mapping"
+
+---
+
+[INPUT_PARAMETERS]
+sensor_array_nodes = 24
+array_shape = "hemispherical dome"
+sensor_type = "capacitance differential + quantum field probe"
+thermal_noise_floor_K = 2.9
+spatial_resolution_mm = 1.25
+temporal_resolution_ns = 15
+
+---
+
+[SIMULATED_FIELD_CHARACTERISTICS]
+expected_background_energy_density = 5.4e-15 J/m³
+average fluctuation amplitude = ±0.0127 V
+expected resonant band = 1.57–1.68 MHz
+non-resonant suppression band = <0.9 MHz and >2.1 MHz
+
+---
+
+[ZERO_POINT_FILTER_PROFILE]
+resonance_window_MHz = 1.618 ± 0.369
+reject_noise_below_dB = -54
+reject_noise_above_dB = -63
+phase_window_degrees = 3.6–10.8
+
+---
+
+[OUTPUT_MAPPING]
+output_visualization = true
+frame_rate_fps = 120
+grid_overlay = true
+beam_source_overlay = "ZPR-node-flux"
+export_format = "CSV + MP4"
+
+---
+
+[FAILSAFE_SIMULATION]
+inject_phase_anomaly = true
+anomaly_duration_ns = 45
+expected_rejection_response = "waveform cut + delay reroute"
+verify_field_clarity = true
+
+---
+
+[POST-PROCESSING]
+spectral_density_graph = true
+harmonic_resonance_index = true
+export_timeline = true
+
+---
+
+[END]
