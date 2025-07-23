@@ -1,0 +1,77 @@
+{
+  "IX-SINGULARIS_UART_DUMP": {
+    "metadata": {
+      "stream_version": "1.0",
+      "export_time_utc": "2025-07-22T21:00:00Z",
+      "device_id": "IXS-BBX-001",
+      "origin": "system-health-daemon",
+      "security_hash": "822A6EF3C5D872C9AFA1E49FBF1239129C6EAB2D3F9E54A0B219FAEC7F8C7D1B9"
+    },
+    "event_log": [
+      {
+        "timestamp_μs": 251293840,
+        "event": "PHASE_DRIFT_DETECTED",
+        "value": 0.4,
+        "units": "deg"
+      },
+      {
+        "timestamp_μs": 251294240,
+        "event": "CORRECTION_PULSE",
+        "result": "STABILIZED"
+      },
+      {
+        "timestamp_μs": 753210110,
+        "event": "CRYO_LAG",
+        "value": 11.3,
+        "units": "ms"
+      },
+      {
+        "timestamp_μs": 753210510,
+        "event": "CRYO_BURST_ASSIST",
+        "result": "ACTIVE"
+      },
+      {
+        "timestamp_μs": 1023115900,
+        "event": "CONTAINMENT_DROP_WARN",
+        "value": 91.7,
+        "units": "%"
+      },
+      {
+        "timestamp_μs": 1023117020,
+        "event": "FIELD_RESTORED",
+        "value": 97.8,
+        "units": "%"
+      },
+      {
+        "timestamp_μs": 2885118100,
+        "event": "CRITICAL_FIELD_FAILURE",
+        "value": 87.2,
+        "units": "%"
+      },
+      {
+        "timestamp_μs": 2885118300,
+        "event": "EVCA_DEPLOYED",
+        "result": "CONTAINMENT_COLLAPSE_VECTOR_ENGAGED"
+      },
+      {
+        "timestamp_μs": 2885118520,
+        "event": "STABILIZATION_SUCCESS",
+        "recovered_field": 95.1
+      },
+      {
+        "timestamp_μs": 2888891900,
+        "event": "SYSTEM_STABLE",
+        "flag": true
+      }
+    ],
+    "system_status": {
+      "cryosink_temp_C": -193.4,
+      "core_flux_MJ": 4.1,
+      "containment_integrity": 95.1,
+      "active_beam_count": 3,
+      "tuner_core_locked": true,
+      "zero_cell_feedback": "nominal"
+    },
+    "stream_end": true
+  }
+}
