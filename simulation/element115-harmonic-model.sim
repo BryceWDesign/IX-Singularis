@@ -1,81 +1,75 @@
-# IX-Singularis Simulation File
-# Model: Element 115 Harmonic Containment Profile
-# Format: .sim (plaintext config for waveform simulator or custom FPGA sequencer)
+# IX-Singularis Simulation File  
+# Model: Harmonic Field Interaction Profile – Element 115  
+# Format: .sim (standardized simulation input/output spec)
 
 ---
 
 [MODEL_META]
-name = "element115_harmonic_dampening"
+name = "element115_harmonic_instability_map"
 version = "1.0"
 author = "Bryce Wooster"
 date_created = "2025-07-22"
-simulation_type = "real-time harmonic waveform suppression"
+source = "internal simulation engine – IX-Singularis"
+description = "Resonant instability map for uncontained isotope of Element 115 in various field states"
 
 ---
 
-[CORE_PARAMETERS]
-isotope_target = "Element_115"
-initial_mass_micrograms = 0.89
-vault_core_diameter_cm = 5.5
-vacuum_pressure_mTorr = 0.001
-starting_temperature_K = 4.3
+[EXOTIC_MATTER_PROPERTIES]
+atomic_mass_u = 288.19
+half_life_seconds = 0.16
+proton_count = 115
+shell_instability_rate = 38.2% per 100 ns
+radiative yield_estimate = ~2.3 MeV
+vacuum_resonance_bias = 8.2e-14 J/m³ (active)
+field_resistance_threshold = 3.5 T harmonic / 97.8% phase sync
 
 ---
 
-[HARMONIC_WAVEFORM_PROFILES]
-beam_count = 6
-beam_shape = "longitudinal Tesla sinusoid"
-base_frequency_MHz = 2.19
-frequency_variance_range_MHz = 0.45
-harmonic_ratios = [3, 6, 9]
-phase_inversion_delay_ns = 270
-pulse_duration_microsec = 12.5
-pulse_spacing_microsec = 3.8
-field_strength_Vpm = 1200
+[HARMONIC_BAND_RESPONSES]
+band_1 = 1.118 MHz → minimal suppression
+band_2 = 1.447 MHz → partial phase lock (~31%)
+band_3 = 1.618 MHz → sustained field sync, core damping (~87%)
+band_4 = 1.872 MHz → destructive destabilization; not advised
 
 ---
 
-[STF_LAYER_MODEL]
-viscosity_model = "non-newtonian_shear_thickening"
-pressure_threshold_MPa = 4.0
-cavitation_response = true
-temperature_coupling = true
+[PHASE COLLAPSE METRICS]
+harmonic_sync_window = ±0.0034 sec
+effective field envelope = 7.2 cm radius
+inertial leakage = 0.00041 N (avg)
+field lock decay = 1.2% per 22 ms unless reinforced
+containment offset = vector-normal ±12.3 μrad
 
 ---
 
-[REFLECTOR_LOGIC]
-mirror_geometry = "toroidal foldback"
-mirror_material = "dielectric-silver hybrid"
-angle_variation_range_deg = 0–22
-feedback_delay_ns = 140
-beam_phase_shaping = "asymmetric envelope folding"
+[SIMULATED FIELD STATES]
+
+# WITHOUT FIELD ENVELOPE:
+status = unstable
+field feedback = negative
+instability_rise = exponential
+expected decay time = 0.12–0.17 s
+
+# WITH IX-SINGULARIS ACTIVE FIELD:
+status = bounded
+phase lock = 93.6% (band 3 locked)
+leakage = negligible
+expected decay time = extended >3.2 hours (simulated stabilization)
 
 ---
 
-[CRYO_CORE_SYNC]
-input_temperature_stream = "cryo_feedback_loop.temp"
-feedback_latency_ms = 0.05
-coolant_type = "He4"
-thermal_response_curve = "log-normal damped"
-
----
-
-[FAILSAFE_TESTS]
-trigger_simulated_spike = true
-radiation_burst_amplitude = 1.8e5
-suppression_response_time_ns = 310
-post-event_field_integrity = "maintained"
-
----
-
-[VISUALIZATION]
-enabled = true
+[OUTPUT_VISUALIZATION]
 frame_rate_fps = 240
-overlay_grid_cm = true
-beam_color = "#00FFFF"
-suppression_color = "#FF0000"
-phase_overlay = "true"
-export_format = "mp4 + CSV"
+highlight_resonant band = band_3
+export_frames = "containment_cycle.mp4"
+export_data = "element115_lock_curve.csv"
+
+---
+
+[FAILSAFE_MODE_TEST]
+force_drift_phase = true
+expected response = field reinforcement pulse from TunerCore
+test_recovery_time = 14 ms
 
 ---
 
